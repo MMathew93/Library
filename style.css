@@ -1,0 +1,125 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  
+  /* Remove default padding */
+  ul[class],
+  ol[class] {
+    padding: 0;
+  }
+  
+  /* Remove default margin */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul[class],
+  ol[class],
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+  
+  /* Set core body defaults */
+  body {
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Remove list styles on ul, ol elements with a class attribute */
+  ul[class],
+  ol[class] {
+    list-style: none;
+  }
+  
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+  
+  /* Make images easier to work with */
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  
+body {
+    background-color:  #1a1a1a;
+    margin: 0 25%;
+}
+
+header {
+    margin: 15% auto 35px;
+    border: 5px dashed white;
+    text-align: center;
+    font-size: 36px;
+    color: white;
+}
+
+main {
+    display: block;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#shelf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: white;
+}
+
+.book {
+    border: 1px solid white;
+    text-align: center;
+    max-height: 450px;
+}
+ 
+.book-cover {
+    border: 2px double white;
+    text-align: center;
+    font-weight: bold;
+    margin: 15px 15px 50px 15px;
+}
+
+h2 {
+    max-width: 200px;
+    padding: 10px;
+}
+
+.read-it {
+    margin-bottom: 15px;
+}
