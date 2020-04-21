@@ -125,8 +125,11 @@ h2 {
 }
 
 .form-container {
-    display: none;
     color: white;
+}
+
+.hidden {
+    display: none;
 }
 
 #form {
