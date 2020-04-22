@@ -131,8 +131,9 @@ h2 {
     word-break: break-word;
 }
 
-.read-it {
-    margin-bottom: 15px;
+.question {
+    margin: 8px;
+    padding: 10px;
 }
 
 .form-container {

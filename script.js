@@ -23,11 +23,12 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = Number(pages);
   if (read === "true" || read === true) {
-      this.read = true;
-  } else {
-      this.read = false;
-  }
+    this.read = true;
+} else {
+    this.read = false;
 }
+}
+
 
 //Shows the hidden form for users to submit books
 function showForm() {
@@ -38,7 +39,7 @@ render();
 
 //Adds user submission into array    
 function addBookToLibrary(event) {
-  let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value);
+  let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, document.querySelector('input[name=read]:checked').value);
   library.push(newBook);
   populateStorage();
   render()
@@ -87,7 +88,7 @@ function render() {
           <div class="book-info">
               <h3>${library[i].author}</h3>
               <h4>${library[i].pages} pages</h4>
-              <buton class="read-it">Not Read</buton>
+              <h5>${library[i].read ? 'I\'ve read this!' : 'I have not read this...'}</h5>
           </div>
       </div>
       `;
@@ -98,36 +99,14 @@ function render() {
   readBtns = document.querySelectorAll('.read-btn');
   // gives the eventlistener to new btns created when a book is added
   activateBtns();
+  */
+
   // Gives all objects of type Object readToggle method
   Object.prototype.readToggle = function () {
       return this.read ? this.read = false : this.read = true;
-  }//*/
+  }//
 }
 
 function populateStorage() {
   localStorage.setItem('library', JSON.stringify(library));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/* shelf-string unedited
-<div class="book-cover">
-      <button class="delete-book" data-title="${library[i].title}">Delete</button>
-          <div class="cover-border">
-              <h2>${library[i].title}</h2>
-          </div>
-              <h3>${library[i].author}</h3>
-              <h4>${library[i].pages} pages</h4>
-              <button class="read-btn" data-title="${library[i].title}">
-                  ${library[i].read ? 'Read' : 'Not read'}
-              </button>
-      </div>*/
