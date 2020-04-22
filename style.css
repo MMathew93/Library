@@ -105,7 +105,12 @@ section {
 .book {
     border: 1px solid white;
     text-align: center;
-    max-height: 450px;
+    margin: 20px;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .book-cover {
@@ -115,9 +120,15 @@ section {
     margin: 15px 15px 50px 15px;
 }
 
+.book-info {
+    padding: 20px;
+    margin: 0;
+}
+
 h2 {
     max-width: 200px;
     padding: 10px;
+    word-break: break-word;
 }
 
 .read-it {
