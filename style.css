@@ -70,6 +70,13 @@ select {
     font: inherit;
 }
 
+#readMe {
+    font: inherit;
+    background: none;
+    color: white;
+    border: none;
+}
+
 body {
     background-color: #1a1a1a;
     margin: 0 25%;
@@ -113,11 +120,28 @@ section {
     justify-content: space-between;
 }
 
+#erase {
+    color: red;
+    font-size: 28px;
+    background: none;
+    width: 25%;
+    border: none;
+}
+
+
+#erase:hover {
+    color: darkred;
+}
+
 .book-cover {
     border: 2px double white;
     text-align: center;
     font-weight: bold;
-    margin: 15px 15px 50px 15px;
+    margin: 15px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .book-info {

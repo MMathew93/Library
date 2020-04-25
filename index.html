@@ -15,10 +15,27 @@
     <main>
         <section>
             <button type="button" id="new-book">Add a new book!</button>
+            <div id="test">
+                
+            </div>
         </section>
         <section>
             <div id="shelf">
-                
+                <div class="book">
+                    <div class="book-cover">
+                        <h2>${library[i].title}</h2>
+                    </div>
+                    <div class="book-info">
+                        <h3>${library[i].author}</h3>
+                        <h4>${library[i].pages} pages</h4>
+                        <button type="button" class="readMe">
+                            <h5>${library[i].read ? 'Read' : 'Not Read'}</h5>
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="erase">X</button>
+                    </div>
+                </div>
             </div>
             <div class="form-container hidden">
                 <form id="form">

@@ -6,6 +6,8 @@ const submit = document.getElementById("submit")
 const cancel = document.getElementById("cancel")
 const addbook = document.getElementById("new-book")
 const formContainer = document.querySelector(".form-container")
+const erase = document.querySelector(".erase")
+const readMe = document.querySelector(".readMe")
 
 
 //Array that holds user submissions with starters
@@ -24,9 +26,9 @@ function Book(title, author, pages, read) {
   this.pages = Number(pages);
   if (read === "true" || read === true) {
     this.read = true;
-} else {
+  } else {
     this.read = false;
-}
+  }
 }
 
 
@@ -60,11 +62,28 @@ function clear() {
   pagesInput.value = ""
 }
 
+//deletes books from array and updates cards on shelf
+function deleteBook(id) {
+  library.splice(id, 1);
+  populateStorage()
+  render();
+}
+
 //Re-hides the form
 function hideForm() {
   formContainer.classList.add("hidden");
 }
 
+//toggles read to not read, visa versa
+function readToggle(id) {
+  library[id].read = !library[id].read;
+  let status= document.getElementById(`${id} h5`)
+  if(library[id].read === true) {
+    status.innerHTML = 'Read'
+  } else {
+    status.innerHTML = 'Not Read'
+  }
+}
 
 //EVENT LISTENERS//
 submit.addEventListener("click", addBookToLibrary);
@@ -74,37 +93,30 @@ addbook.addEventListener("click", showForm);
 //local storage
 function render() {
   if (!localStorage.getItem('library')) {
-      populateStorage();
+    populateStorage();
   }
   // Set local storage as the library array, returning it from a string with JSON.parse
   library = JSON.parse(localStorage.getItem('library'));
   let shelfString = '';
   for (let i = 0; i < library.length; i++) {
-      shelfString += `
-      <div class="book">
+    shelfString += `
+      <div class="book" id="${i}">
           <div class="book-cover">
               <h2>${library[i].title}</h2>
           </div>
           <div class="book-info">
               <h3>${library[i].author}</h3>
               <h4>${library[i].pages} pages</h4>
-              <h5>${library[i].read ? 'I\'ve read this!' : 'I have not read this...'}</h5>
+              <button class="readMe" onclick= "readToggle(${i})" >
+                <h5 id="${i} h5">${library[i].read ? 'Read' : 'Not Read'}</h5>
+              </button>
           </div>
+          <button type="button" class="erase" onclick= "deleteBook(${i})">X</button>
       </div>
+      
       `;
   }
   shelf.innerHTML = shelfString;
-  /*//  find new delete-book/read-btn btns to update the nodelist after a book is added
-  deleteBookBtns = document.querySelectorAll('.delete-book');
-  readBtns = document.querySelectorAll('.read-btn');
-  // gives the eventlistener to new btns created when a book is added
-  activateBtns();
-  */
-
-  // Gives all objects of type Object readToggle method
-  Object.prototype.readToggle = function () {
-      return this.read ? this.read = false : this.read = true;
-  }//
 }
 
 function populateStorage() {
